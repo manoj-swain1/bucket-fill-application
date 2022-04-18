@@ -46,7 +46,10 @@ public class BucketFillService extends OperationService implements ShapeService 
 
     private boolean isValid(Canvas template, int x, int y, int prevC, int newC) {
         var canvas = template.getCanvas();
-        if (x < 1 || x > template.getWidth() - 2 || y < 1 || y > template.getHeight() - 2) {
+        if (x < 1 || x > template.getWidth() - 1 || y < 1 || y > template.getHeight() - 1) {
+            return false;
+        }
+        if (canvas[y][x] == '|' || canvas[y][x] == '-' || canvas[y][x] == 'x') {
             return false;
         }
         return canvas[y][x] == prevC && canvas[y][x] != newC;
