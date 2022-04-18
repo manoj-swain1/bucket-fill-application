@@ -3,13 +3,13 @@ A console based application to draw canvas, line, box and bucket fill functional
 
 -------------------
 # Requirements
-Java 11
-Maven
+1. Java 11
+2. Maven
 
 -------------------
 # Frameworks used
-Junit 5 for unit testing
-Lombok to increase readability of source code and  to not write boilerplate code.
+1. Junit 5 for unit testing
+2. Lombok to increase readability of source code and  to not write boilerplate code.
 
 ------------------
 # Commands
@@ -41,8 +41,8 @@ Q               Should quit the program.
  
  ------------------------
  # Build and deploy
- **Build**  - mvn clean compile install
- **Deploy** - Navigate to target folder. There will be jar(**bucket-fill-application-1.0-SNAPSHOT.jar**).
-              Use command **java -jar bucket-fill-application-1.0-SNAPSHOT.jar** to execute application.
- **Test**   - mvn test
+1. **Build**  - mvn clean compile install
+2. **Deploy** - Navigate to target folder. There will be jar(**bucket-fill-application-1.0-SNAPSHOT.jar**).
+                Use command **java -jar bucket-fill-application-1.0-SNAPSHOT.jar** to execute application.
+3. **Test**   - mvn test
   
