@@ -31,8 +31,8 @@ Q               Should quit the program.
 
 -------------------------
 # Assumptions : 
-1. Boundaries color cannot be overridden(H-Border is represented by '-' and V-Border is represented by '|'
-2. Lines can be drawn vertically or horizontally. Diagonal lines are not covered in this application. Lines are represented by 'x'.
+1. Boundaries color cannot be overridden(H-Border is represented by **-** and V-Border is represented by **|**)
+2. Lines can be drawn vertically or horizontally. Diagonal lines are not covered in this application. Lines are represented by **x**.
 4. Console coordinate : (x,y) origin coordinate is the left top corner. X coordinate grows horizontally towards right. whereas y coordinate moves vertically towards bottom of console.     
   
  ------------------------
