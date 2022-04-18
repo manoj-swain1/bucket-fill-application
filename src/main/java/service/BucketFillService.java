@@ -35,7 +35,10 @@ public class BucketFillService extends OperationService implements ShapeService 
             int x = Integer.parseInt(coordinates[0]);
             int y = Integer.parseInt(coordinates[1]);
             char previousColor = canvas.getCanvas()[y][x];
-            bucketFill(x, y, canvas, coordinates[2].charAt(0), previousColor);
+            char newColor = coordinates[2].charAt(0);
+            validateInputs(canvas, previousColor, newColor);
+
+            bucketFill(x, y, canvas, newColor, previousColor);
         } catch (NumberFormatException ex) {
             throw new IllegalInputArgumentsException("Illegal argument. Pass numeric value for X and Y coordinate. Try again[B x y c].");
         } catch (ArrayIndexOutOfBoundsException ex) {
@@ -44,12 +47,24 @@ public class BucketFillService extends OperationService implements ShapeService 
 
     }
 
+    private void validateInputs(Canvas canvas, char previousColor, char newColor) {
+        if (newColor == '-') {
+            throw new IllegalInputArgumentsException("Illegal argument. Pass color different from '-' as '-' is reserved for horizontal boundary. Try again[B x y c].");
+        } else if (newColor == '|') {
+            throw new IllegalInputArgumentsException("Illegal argument. Pass color different from '|' as '|' is reserved for vertical boundary. Try again[B x y c].");
+        } else if (previousColor == '-') {
+            throw new IllegalInputArgumentsException("Illegal argument. Trying to paint on border." + canvas.toString() + ". Try again[B x y c].");
+        } else if (previousColor == '|') {
+            throw new IllegalInputArgumentsException("Illegal argument. Trying to paint on border." + canvas.toString() + ". Try again[B x y c].");
+        }
+    }
+
     private boolean isValid(Canvas template, int x, int y, int prevC, int newC) {
         var canvas = template.getCanvas();
         if (x < 1 || x > template.getWidth() - 1 || y < 1 || y > template.getHeight() - 1) {
             return false;
         }
-        if (canvas[y][x] == '|' || canvas[y][x] == '-' || canvas[y][x] == 'x') {
+        if (canvas[y][x] == '|' || canvas[y][x] == '-') {
             return false;
         }
         return canvas[y][x] == prevC && canvas[y][x] != newC;
