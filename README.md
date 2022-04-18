@@ -11,6 +11,10 @@ A console based application to draw canvas, line, box and bucket fill functional
 1. Junit 5 for unit testing
 2. Lombok to increase readability of source code and  to not write boilerplate code.
 
+-------------------
+# Resources
+Class diagram uml can be found in resources folder in main package.
+
 ------------------
 # Commands
 
