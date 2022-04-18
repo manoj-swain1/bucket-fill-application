@@ -2,7 +2,6 @@ package service;
 
 import exception.CanvasException;
 import exception.IllegalInputArgumentsException;
-import models.Canvas;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,7 @@ class BucketFillServiceTest {
     @BeforeEach
     void setup() {
         bucketFillService = BucketFillService.getInstance();
-        OperationService.canvas = new Canvas(20, 4);
+        CanvasService.getInstance().processOperation(new String[]{"20", "4"});
     }
 
     @Test
